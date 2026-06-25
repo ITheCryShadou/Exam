@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: recipe-system
+  datasource:
+    url: jdbc:h2:mem:recipe_system
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+jwt:
+  # Default is only for local exam/demo runs. In real deployment set JWT_SECRET.
+  secret: ${JWT_SECRET:change-this-secret-to-at-least-32-characters}
+  expiration: ${JWT_EXPIRATION:86400000}
+
+app:
+  admin:
+    username: ${ADMIN_USERNAME:admin}
+    email: ${ADMIN_EMAIL:admin@example.com}
+    password: ${ADMIN_PASSWORD:admin123}
+
+# PostgreSQL example:
+# spring:
+#   datasource:
+#     url: jdbc:postgresql://localhost:5432/recipe_system
+#     username: postgres
+#     password: your_password
+#     driver-class-name: org.postgresql.Driver
+#   jpa:
+#     hibernate:
+#       ddl-auto: update
